@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Company</title>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>Update New Company!</h1>
+	<form th:object="${s1}" method="POST">
+		<input name="_method" type="hidden" value="PUT" />
+		<label>Nhap id</label>
+		<input type="text" th:field="*{id}"><br><br>
+		<label>Nhap name</label>
+		<input type="text" th:field="*{name}"><br><br>
+		<label>Nhap price</label>
+		<input type="text" th:field="*{price}"><br><br>			
+		<label>Nhap type</label>
+		<input type="text" th:field="*{type}"><br><br>
+		<button>OK</button>
+	</form>
+	<script>
+	</script>
+</body>
+</html>

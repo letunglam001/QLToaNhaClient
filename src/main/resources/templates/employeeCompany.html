@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Employee Company</title>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<style>
+	th{
+		width: 220px;
+	}
+	td{
+		width: 220px;
+	}
+
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+      	<a class="navbar-brand mr-1" href="/" style="text-transform: uppercase">Phần mềm quản lý</a>
+    </nav>
+    <ul class="sidebar navbar-nav bg-dark" style="position: absolute;width: 15%;height:100%">
+       
+        <li class="nav-item">
+          <a class="nav-link" href="/company" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Company</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employeeCompany" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Employee Company</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/service" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Service</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employeeBuilding" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Employee Building</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/payment" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Payment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/access" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Access</span>
+          </a>
+        </li>
+    </ul>
+    <div class="container-p3 pt-2" style="position: absolute;left: 20%;width:1000px">
+		<div class="input-group mb-3">
+          <h1 class="mr-auto">LIST EMPLOYEE COMPANY</h1>
+          <input type="text" placeholder="Search..." id="myInput">
+        </div>
+	<form method="GET" th:switch="${employees}">
+		<table class="employee-group table table-dark table-bordered">
+			<thead>
+				<tr>
+				<th>CMT</th>
+				<th>Name</th>
+				<th>PhoneNumber</th>
+				<th>DateOfBirth</th>
+			</tr>
+			</thead>
+			<tbody id="myTable">
+				<tr th:each="employee : ${employees}">
+				<td th:text="${employee.CMT}"></td>
+				<td th:text="${employee.name}"></td>
+				<td th:text="${employee.phoneNumber}"></td>
+				<td th:text="${employee.dateOfBirth}"></td>
+			</tr>
+			</tbody>
+		</table>
+	</form>
+	<button class="btn btn-primary"><a href="/employeeCompany/delete" style="text-decoration: none;color: white;">Delete Employee Comany</a></button>
+	<button class="btn btn-primary"><a href="/employeeCompany/create" style="text-decoration: none;color: white;">Create Employee Company</a></button>
+	<button class="btn btn-primary"><a href="/employeeCompany/update" style="text-decoration: none;color: white;">Update Employee Company</a></button>
+</div>
+	<script>
+		$(document).ready(function(){
+  			$("#myInput").on("keyup", function() {
+    		var value = $(this).val().toLowerCase();
+    		$("#myTable tr").filter(function() {
+     			 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+   			 });
+  			});
+			});
+	</script>
+</body>
+</html>

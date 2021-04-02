@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Payment</title>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+	<style>
+		td{
+			width: 250px;
+		}
+		body{
+			height: 100%;
+		}
+		input[type=text]{
+			width: 100%;
+			margin-bottom: 10px;
+		}
+	  	button{
+	  		margin-bottom: 10px;
+	  		width: 69px;
+	  	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+      	<a class="navbar-brand mr-1" href="/" style="text-transform: uppercase">Phần mềm quản lý</a>
+    </nav>
+    <ul class="sidebar navbar-nav bg-dark" style="position: absolute;width: 15%;height:100%">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/company" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Company</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employeeCompany" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Employee Company</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/service" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Service</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employeeBuilding" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Employee Building</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/payment" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Payment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/access" style="text-align: center;text-decoration: none;color: white">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Access</span>
+          </a>
+        </li>
+    </ul>
+    <div class="container pt-2 border border-dark rounded-lg" style="position: absolute;left: 25%;top: 10% ;width: 600px">
+	<h1>Create New Access!</h1>
+	<form method="POST" th:object="${access}">
+		<label>Nhap id</label>
+		<input type="text" th:field="*{id}">
+		<label>Nhap TimeIn</label>
+		<input type="text" th:field="*{TimeIn}">
+		<label>Nhap TimeOut</label>
+		<input type="text" th:field="*{TimeOut}">
+		<label>Nhap LocationIn</label>
+		<input type="text" th:field="*{locationIn}">
+		<label>Nhap LocationOut</label>
+		<input type="text" th:field="*{locationOut}">
+		<label>Nhap employee company name</label>
+		<p th:object="${employeeCompany}">
+			<input type="text" th:field="*{name}">
+		</p>
+		<!-- <input type="text" th:field="*{type}"><br><br> -->
+		<button>OK</button>
+	</form>
+	</div>
+	<script>
+	</script>
+</body>
+</html>
